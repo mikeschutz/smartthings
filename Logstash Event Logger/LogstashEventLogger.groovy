@@ -158,7 +158,7 @@ def genericHandler(evt) {
     log.debug("JSON: ${json}")
 
     def params = [
-    	uri: "http://${logstash_host}:${logstash_port}",
+    	uri: "https://${logstash_host}:${logstash_port}",
         body: json
     ]
     try {
