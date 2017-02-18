@@ -69,8 +69,7 @@ preferences {
     }
 
     section ("Logstash Server") {
-        input "logstash_host", "text", title: "Logstash Hostname/IP"
-        input "logstash_port", "number", title: "Logstash Port"
+        input "logstash_url", "text", title: "Logstash URL (eg: http://hostname:8080/logstash)"
     }
 
 }
@@ -158,7 +157,7 @@ def genericHandler(evt) {
     log.debug("JSON: ${json}")
 
     def params = [
-    	uri: "https://${logstash_host}:${logstash_port}",
+    	uri: "https://${logstash_url}",
         body: json
     ]
     try {
